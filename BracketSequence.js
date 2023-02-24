@@ -1,7 +1,7 @@
 
 
 class BracketSequence{
-    _stack;
+    _stack = new MyStack();
     _indexes = [];
     _index = -1;
     _current = -1;
@@ -12,11 +12,6 @@ class BracketSequence{
         '<' : '>',
         '[' : ']',
         '{' : '}'
-    }
-
-    constructor() {
-        this._stack = new MyStack();
-
     }
 
 
@@ -55,7 +50,7 @@ class BracketSequence{
             }
             else {
                 this._current++;
-                if (sequence[i] in Object.values(this._brackets) && this._stack.Count() > 0 && this._brackets[this._stack.Pop()] === e) {
+                if (sequence[i] in Object.values(this._brackets) && this._stack.Count() > 0 && this._brackets[this._stack.Pop()] === i) {
                     this._indexes.push([this._index, this._current]);
                     this._index--;
                 }
